@@ -40,7 +40,7 @@ shinyServer(function(input, output) {
   })
   
   
-  #折线图，由于echart中展示默认的为条形图，改为默认展示为折线图，将修改chart中series下type参数，改成line，此处有4个变量，需要修改四次type，因此用了for循环
+  #折线图，由于recharts中展示默认的为条形图，改为默认展示为折线图，将修改chart中series下type参数，改成line，此处有4个变量，需要修改四次type，因此用了for循环
   chartdate_1_2 <- reactive({
     aa <- melt(fqdzsj1,id=1:6,measure=c("进件量","通过量","取消量","拒绝量"),value.factor=TRUE)
     aa <- aa[apply_time>=input$date1_1[1] & apply_time<=input$date1_1[2]][order(apply_time)]
@@ -54,7 +54,7 @@ shinyServer(function(input, output) {
   })
   
   
-  #以下四个均为饼图，阅读一个即可由于echart与dashboard冲突，部分图形在dashboard中不显示，此处需修改chart下参数dependencies，赋值为NULL即可
+  #以下四个均为饼图，阅读一个即可由于recharts与dashboard冲突，部分图形在dashboard中不显示，此处需修改chart下参数dependencies，赋值为NULL即可
   chartdate_1_3 <- reactive({
     bb <- fqdzsj1_2[apply_time>=input$date1_1[1] & apply_time<=input$date1_1[2]]
     bb <- bb[,.(进件量=sum(进件量)),by='prod_typ_detail']
