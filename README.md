@@ -17,7 +17,8 @@
 str(chart1)   得到该图详细信息
 与条形图（可显示的其他图）进行比较发现dependencies参数不一样，修改即可
 
-
+以下为该代码效果图：
+![Image text](https://github.com/1520736056/R-shiny/blob/master/Figure.jpg)
 
 
 
